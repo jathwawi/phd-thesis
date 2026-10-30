@@ -1,0 +1,103 @@
+% Phd Thesis
+
+% Packages
+\documentclass[a4paper]{book}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{pdfpages} % Required for inserting PDFs
+\usepackage[hidelinks]{hyperref} % Required for phantom sections
+\usepackage[Sonny]{fncychap} % Required for chapter themes
+\usepackage{longtable} % for tables
+\usepackage{xurl} % For wrapping URLs
+\usepackage{pdflscape}   % For rotating the page
+\usepackage{array} % For better column formatting
+\usepackage{booktabs} % For table formatting
+\usepackage{fontspec} % Required to set fonts
+\usepackage{setspace} % Required to set line spacing
+\usepackage{fancyhdr} % Required for header and footer
+\usepackage[backend=biber, style=vancouver]{biblatex} % for overleaf referencing
+\AtEveryBibitem{%
+  \ifentrytype{article}{%
+    \clearfield{issn}%
+    \clearfield{doi}%
+    \clearfield{url}%
+    \clearfield{urldate}%
+    \clearfield{note}%
+  }{}%
+}
+\addbibresource{refs/ch-1.bib} % Zotero ref library ch1
+\addbibresource{refs/ch-6.bib} % Zotero ref library ch6
+\addbibresource{refs/ch-9.bib} % Zotero ref library ch9
+\addbibresource{refs/ch-ten.bib} % Zotero ref library ch10
+\raggedbottom % make sure line spacing is the same on all pages, means text doesn't always end at bottom of page
+
+% Ensure chapter titles are single spaced
+\makeatletter
+\let\old@makechapterhead\@makechapterhead
+\renewcommand{\@makechapterhead}[1]{%
+  {\singlespacing
+   \old@makechapterhead{#1}}}
+\makeatother
+
+% Define reference syle for written chapters
+\defbibheading{subbibliography}[\refname]{%
+  \section{#1}%
+}
+
+% Document information
+\title{Methods to Include Environmental Impacts in Health Technology Assessments}
+\author{Jake Thomas Warton Williams}
+\date{2025}
+
+% Basic formatting---------------------------
+\setmainfont{Times New Roman} % Font
+\doublespacing % double line spacing
+\pagestyle{plain}
+
+%---------------------------------------------
+
+\begin{document}
+
+\frontmatter % Front matter
+%\begin{singlespace}
+    %\maketitle
+    \input{front-matter/title page}
+%\end{singlespace}
+\input{front-matter/originality.tex}
+\input{front-matter/abstract.tex}
+\input{front-matter/acknowledgements}
+\input{front-matter/author attribution}
+\input{front-matter/publications}
+\input{front-matter/funding}
+\begin{singlespace}
+    \setcounter{tocdepth}{1}
+    \tableofcontents
+\end{singlespace}
+
+\mainmatter % Main matter
+\input{core-chapters/ch-1}
+\input{core-chapters/ch-2}
+\input{core-chapters/ch-3}
+\input{core-chapters/ch-4}
+\input{core-chapters/ch-5}
+\input{core-chapters/ch-6}
+\input{core-chapters/ch-7}
+\input{core-chapters/ch-8}
+\input{core-chapters/ch-9}
+\input{core-chapters/ch-10}
+
+
+\appendix % Appendix
+\input{appendix/ap-a}
+\input{appendix/ap-b}
+\input{appendix/ap-c}
+\input{appendix/ap-d}
+\input{appendix/ap-e}
+\input{appendix/ap-f}
+\input{appendix/ap-g}
+\input{appendix/ap-h}
+\input{appendix/ap-i}
+
+\clearpage
+
+\end{document}
+
